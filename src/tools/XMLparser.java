@@ -76,12 +76,35 @@ public class XMLparser {
 	    	text =text.substring(1,j);
 	    
 	    	
-	    	return text;
+	    	return replace(text);
 	    }
 	    else{
 	    	return("not working");	    	
 	    }
 	 }
+	
+	/**Replaces < and >
+	 * 
+	 * @param in
+	 * message
+	 * 
+	 * @return
+	 * new message
+	 */
+	public static String replace(String in) {
+		StringBuilder sb = new StringBuilder(in);
+		int i;
+		while ((i = sb.indexOf("<")) != -1) {
+			sb.replace(i, i+1, "&");
+			sb.insert(i+1, "lt;");
+		}
+		while ((i = sb.indexOf(">")) != -1) {
+			sb.replace(i, i+1, "&");
+			sb.insert(i+1, "gt;");
+		}
+		
+		return sb.toString();
+	}
 	
 	/**returns the color
 	 * 

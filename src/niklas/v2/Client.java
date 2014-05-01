@@ -127,7 +127,7 @@ public class Client implements Runnable, Subject{
 		if (clientSocket != null && out != null && s.length() != 0) {
 			chattHistory += "<font color=#"+color+">me: "+s+"</font><br>";
 			out.println("<message sender="+'"'+me+'"'+'>'+ "<text color=#"+color+">"
-					+s+ "</text>" + "</message>");
+					+XMLparser.replace(s)+ "</text>" + "</message>");
 			notifyObservers();
 		}
 	}
