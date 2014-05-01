@@ -125,7 +125,7 @@ public class Client implements Runnable, Subject{
 	/**sends a string*/
 	public void send(String s) {
 		if (clientSocket != null && out != null && s.length() != 0) {
-			chattHistory += "<font color=#"+color+">me: "+s+"</font><br>";
+			chattHistory += "<font color=#"+color+">me: "+XMLparser.replace(s)+"</font><br>";
 			out.println("<message sender="+'"'+me+'"'+'>'+ "<text color=#"+color+">"
 					+XMLparser.replace(s)+ "</text>" + "</message>");
 			notifyObservers();
